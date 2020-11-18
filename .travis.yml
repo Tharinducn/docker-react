@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t tharindunisal/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run tharindunisal/docker-react npm run test -- --coverage
